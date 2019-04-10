@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">The League</string>
+
+    <string name="label_description">Description:</string>
+    <string name="label_founded_year">Founded year:</string>
+
+    <string name="label_spanish_league">Spanish La liga</string>
+    <string name="label_english_league">English Premier League</string>
+    <string name="label_italian_league">Italian Serie A</string>
+</resources>

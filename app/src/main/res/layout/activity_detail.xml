@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".view.detail.DetailActivity">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.bigthinkapps.theleague.viewmodel.DetailViewModel" />
+
+        <variable
+            name="team"
+            type="com.bigthinkapps.theleague.data.Team" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/global_padding_medium">
+
+        <TextView
+            android:id="@+id/labelTittleDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_description"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/labelDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="8"
+            android:text="@{team.description}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/labelTittleDescription"
+            tools:text="This is a text for description" />
+
+        <TextView
+            android:id="@+id/labelTitleFoundedYear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/global_margin_min"
+            android:text="@string/label_founded_year"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/labelDescription" />
+
+        <TextView
+            android:id="@+id/labelFoundedYear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{team.formedYear}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/labelTitleFoundedYear"
+            tools:text="Founded year" />
+
+        <LinearLayout
+            android:id="@+id/containerBadge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/global_margin_big"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/labelFoundedYear">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:scaleType="fitCenter"
+                app:image="@{team.urlBadge}"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:scaleType="fitCenter"
+                app:image="@{team.urlJersey}"
+                tools:ignore="ContentDescription" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/containerSocial"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/global_margin_big"
+            android:layout_marginBottom="8dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@+id/viewPager"
+            app:layout_constraintTop_toBottomOf="@id/containerBadge"
+            tools:layout_editor_absoluteX="10dp">
+
+            <TextView
+                android:id="@+id/labelWebSite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:autoLink="all"
+                android:textStyle="italic"
+                app:validateText="@{team.webSite}"
+                tools:text="www.test.com" />
+
+            <TextView
+                android:id="@+id/labelFacebook"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:autoLink="all"
+                android:textStyle="italic"
+                app:validateText="@{team.facebook}"
+                tools:text="www.test.com" />
+
+            <TextView
+                android:id="@+id/labelTwitter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:autoLink="all"
+                android:textStyle="italic"
+                app:validateText="@{team.twitter}"
+                tools:text="www.test.com" />
+
+            <TextView
+                android:id="@+id/labelInstagram"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:autoLink="all"
+                android:textStyle="italic"
+                app:validateText="@{team.instagram}"
+                tools:text="www.test.com" />
+        </LinearLayout>
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/viewPagerEvent"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            app:itemsPager="@{viewModel.items}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <com.viewpagerindicator.CirclePageIndicator
+            android:id="@+id/indicatorPager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/global_margin_big"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="@{viewModel.isLoading ?  View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

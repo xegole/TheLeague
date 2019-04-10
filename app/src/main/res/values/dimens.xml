@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="global_padding_min">5dp</dimen>
+    <dimen name="global_padding_medium">10dp</dimen>
+    <dimen name="global_padding_big">15dp</dimen>
+
+    <dimen name="global_margin_min">5dp</dimen>
+    <dimen name="global_margin_medium">10dp</dimen>
+    <dimen name="global_margin_big">15dp</dimen>
+
+    <dimen name="card_corner_radius">5dp</dimen>
+</resources>

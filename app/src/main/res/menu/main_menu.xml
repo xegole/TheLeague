@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_league_1"
+        android:title="@string/label_spanish_league"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_league_2"
+        android:title="@string/label_english_league"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_league_3"
+        android:title="@string/label_italian_league"
+        app:showAsAction="never" />
+</menu>
